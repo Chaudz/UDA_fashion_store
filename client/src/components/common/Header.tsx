@@ -18,8 +18,8 @@ export type DropDownItem = {
 export type Category = {
   id: string;
   name: string;
-  url: string;
   listDropDown: DropDownItem[];
+  urlCollections: string;
 };
 
 export type Data = Category[];
@@ -28,7 +28,7 @@ const data: Data = [
   {
     id: "11",
     name: "Áo khoác",
-    url: "/ao-khoac",
+    urlCollections: "ao-khoac",
     listDropDown: [
       {
         id: "22",
@@ -49,9 +49,9 @@ const data: Data = [
     ],
   },
   {
-    id: "12",
+    id: "11",
     name: "Áo Thun",
-    url: "/ao-thun",
+    urlCollections: "ao-thun",
     listDropDown: [
       {
         id: "22",
@@ -72,9 +72,9 @@ const data: Data = [
     ],
   },
   {
-    id: "13",
+    id: "11",
     name: "Sơ mi",
-    url: "/so-mi",
+    urlCollections: "so-mi",
     listDropDown: [
       {
         id: "22",
@@ -95,9 +95,9 @@ const data: Data = [
     ],
   },
   {
-    id: "14",
+    id: "11",
     name: "Quần dài",
-    url: "/quan-dai",
+    urlCollections: "quan-dai",
     listDropDown: [
       {
         id: "22",
@@ -118,9 +118,9 @@ const data: Data = [
     ],
   },
   {
-    id: "15",
+    id: "11",
     name: "Quần short",
-    url: "/quan-short",
+    urlCollections: "quan-short",
     listDropDown: [
       {
         id: "22",
@@ -141,9 +141,9 @@ const data: Data = [
     ],
   },
   {
-    id: "16",
+    id: "11",
     name: "Áo khoác",
-    url: "/ao-khoac-2",
+    urlCollections: "ao-khoac",
     listDropDown: [
       {
         id: "22",
@@ -162,12 +162,6 @@ const data: Data = [
         name: "Áo khoác blazer nam",
       },
     ],
-  },
-  {
-    id: "17",
-    name: "Sale",
-    url: "/sale",
-    listDropDown: [],
   },
 ];
 
@@ -269,8 +263,8 @@ const Header = (): JSX.Element => {
                 key={index}
                 id={el.id}
                 name={el.name}
-                url={el.url}
                 listDropDown={el.listDropDown}
+                urlCollections={el.urlCollections}
               />
             );
           })}

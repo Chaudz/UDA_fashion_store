@@ -697,7 +697,15 @@
   dependencies:
     "@types/react" "*"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+"@types/react@*", "@types/react@>=16.9.11", "@types/react@^18.2.43":
+=======
 "@types/react@*", "@types/react@^18.2.43":
+>>>>>>> 65b6404a27836d730b3e203bb4f28c206c52cdbe
+=======
+"@types/react@*", "@types/react@^18.2.43":
+>>>>>>> 65b6404a27836d730b3e203bb4f28c206c52cdbe
   version "18.2.47"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.2.47.tgz"
   integrity sha512-xquNkkOirwyCgoClNk85BjP+aqnIS+ckAJ8i37gAbDs14jfW/J23f2GItAf33oiUPQnqNMALiFeoM9Y5mbjpVQ==
