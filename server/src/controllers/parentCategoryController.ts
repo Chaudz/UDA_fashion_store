@@ -19,7 +19,7 @@ class ParentCategoryController {
 
       await newParentCategory.save();
 
-      res.status(201).json({ message: "Create Success !" });
+      res.status(201).json(newParentCategory);
     } catch (error) {
       res.status(500).json(error);
     }

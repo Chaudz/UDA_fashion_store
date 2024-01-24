@@ -18,7 +18,7 @@ class CategoryController {
 
       await newCategory.save();
 
-      res.status(201).json({ message: "Create Success !" });
+      res.status(201).json(newCategory);
     } catch (error) {
       res.status(500).json(error);
     }

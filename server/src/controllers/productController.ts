@@ -158,17 +158,9 @@ class ProductController {
       const discountPercent = req.body.discountPercent ?? 0;
       const productDesc = req.body.productDesc ?? "";
       const { productName, categoryId, parentCategoryId } = req.body;
-
-      if (
-        !productName ||
-        !categoryId ||
-        !parentCategoryId ||
-        productSizes.length === 0 ||
-        imageUrls.length === 0 ||
-        productAttributes.length === 0
-      ) {
-        return res.status(400).json({ message: "Invalid request data" });
-      }
+      console.log(productName);
+      console.log(productAttributes);
+      console.log(productSizes);
 
       const newProduct = new Product({
         productName,
@@ -198,14 +190,14 @@ class ProductController {
       const productDetails: any = [];
       for (let i = 0; i < productSizes.length; i++) {
         const savedProductDetail = await new ProductDetail({
-          stockQuantity: productSizes[0].stockQuantity,
-          price: productSizes[0].price,
+          stockQuantity: productSizes[i].stockQuantity,
+          price: productSizes[i].price,
           productId: savedProduct._id,
           sizeId: productSizes[i].sizeId,
-        });
+        }).save();
         productDetails.push(savedProductDetail);
       }
-
+      console.log("thành công");
       return res.status(201).json({
         product: savedProduct,
         attributes: savedAttributes,
