@@ -5,6 +5,8 @@ import AuthApi from '../../apis/authApi';
 import { ApiResponse } from '../../apis/ApiResponse';
 import { Link, useNavigate } from 'react-router-dom';
 import { screenUrl } from '../../constants/screenUrls';
+import ProductCarousel from "../../components/client/ProductCarousel ";
+
 const LoginPage = (): JSX.Element => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [submitButtonText, setSubmitButtonText] = useState('Đăng nhập');
@@ -76,6 +78,7 @@ const LoginPage = (): JSX.Element => {
   };
 
   return (
+    <div>
     <div className="login-screen">
       <div className="left-section">
         <h2> Đăng nhập</h2>
@@ -85,7 +88,7 @@ const LoginPage = (): JSX.Element => {
       </div>
       <div className="right-section">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email"></label>
           <input
             type="email"
             id="email"
@@ -97,6 +100,7 @@ const LoginPage = (): JSX.Element => {
               setEmailError(false); // Đặt emailError về false khi người dùng nhập
             }}
             className={emailError ? 'error' : ''}
+            placeholder="Email"
           />
 
           {forgotPassword ? (
@@ -111,7 +115,7 @@ const LoginPage = (): JSX.Element => {
             </>
           ) : (
             <>
-              <label htmlFor="password">Mật khẩu:</label>
+              <label htmlFor="password"></label>
               <input
                 type="password"
                 id="password"
@@ -123,6 +127,7 @@ const LoginPage = (): JSX.Element => {
                   setPasswordError(false); // Đặt passwordError về false khi người dùng nhập
                 }}
                 className={passwordError ? 'error' : ''}
+                placeholder="Mật khẩu"
               />
               <div className="error-message">{loginError}</div>
               <div className="row">
@@ -136,6 +141,9 @@ const LoginPage = (): JSX.Element => {
           )}
         </form>
       </div>
+      
+    </div>
+    <ProductCarousel />
     </div>
   );
 };

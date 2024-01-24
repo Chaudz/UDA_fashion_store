@@ -1,7 +1,7 @@
 .register-screen {
   display: flex;
 
-  .left-section {
+  .register-left-section {
     background-color: #3498db;
     color: #fff;
     display: flex;
@@ -23,87 +23,99 @@
     }
   }
 
-  .right-section {
+  .register-right-section {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Thêm dòng này để các phần tử con của .right-section hiển thị dọc */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
+  }
+  .back-home {
+  }
 
-    .back-home {
-      padding-left: 20px;
-      padding-top: 60px;
+  .gender-options {
+    display: flex;
+    font-weight: 500;
+    width: 155px;
+  }
+
+  .male {
+    height: 18px;
+    line-height: 18px;
+  }
+
+  .female {
+    height: 18px;
+  }
+
+  .icon-back {
+    margin-left: 0;
+    color: #3498db;
+  }
+  .error-message {
+    color: red;
+    font-size: 14phonenumberpx;
+  }
+  form {
+    max-width: 400px;
+    width: 100%;
+
+    label {
+      display: block;
+      margin-bottom: 5px;
     }
 
-    .gender-options {
-      display: flex;
-      font-weight: 500;
-      width: 155px;
-    }
-
-    .male {
-      height: 18px;
-      line-height: 18px;
-    }
-
-    .female {
-      height: 18px;
-    }
-
-    .icon-back {
-      margin-left: 0;
-      color: #3498db;
-    }
-
-    form {
-      max-width: 400px;
+    input {
       width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
 
-      label {
-        display: block;
-        margin-bottom: 5px;
+    button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      width: 30%;
+      margin-right: 20px;
+      &:hover {
+        background-color: #10e4f3; // Màu nền mới khi hover
+        transition: background-color 0.3s ease;
+        // Hiệu ứng chuyển động 0.3s khi hover
+      }
+    }
+
+    .register-back {
+      padding-top: 20px;
+      
+    }
+    .register-submit {
+      margin-top: 20px;
+    }
+
+    .additional-options {
+      display: flex;
+      width: 100%;
+      padding-top: 20px;
+      align-items: center;
+
+      p {
+        padding-bottom: 8px;
       }
 
-      input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-      }
-
-      button {
-        background-color: #3498db;
-        color: #fff;
-        padding: 10px;
-        border: none;
+      span {
+        color: #3498db;
         cursor: pointer;
-        width: 30%;
-        margin-right: 20px;
-      }
-
-      .register-back {
-        padding-top: 20px;
-      }
-
-      .additional-options {
-        display: flex;
-        width: 100%;
-        padding-top: 20px;
-        align-items: center;
-
-        p {
-          padding-bottom: 8px;
-        }
-
-        span {
-          color: #3498db;
-          cursor: pointer;
+        &:hover {
+          color: #10e4f3; // Màu mới khi hover
         }
       }
+    }
 
-      .additional-options:hover {
-        color: black;
-      }
+    .additional-options:hover {
+      color: #10e4f3;
     }
   }
 }

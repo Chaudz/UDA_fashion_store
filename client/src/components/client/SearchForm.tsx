@@ -17,6 +17,7 @@ const SearchForm = (props: Props): JSX.Element => {
           <FiSearch fontSize={30} />
         </button>
       </div>
+      <div>Đang phát triển....</div>
       <IoCloseSharp
         className="position-absolute icon-close"
         fontSize={30}

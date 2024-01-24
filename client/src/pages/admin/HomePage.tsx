@@ -107,30 +107,32 @@ const HomePage = () => {
                 <IoIosArrowDown />
               </div>
             </div>
-            <div className="d-flex mt-3">
-              <div className="position-relative input-form me-2">
-                <input
-                  type="text"
-                  placeholder="enter value ...."
-                  className="w-100 p-2 rounded-4 border"
-                  onChange={(e) => {
-                    setNameSearch(e.target.value);
+            {activeTab === "product" && (
+              <div className="d-flex mt-3">
+                <div className="position-relative input-form me-2">
+                  <input
+                    type="text"
+                    placeholder="enter value ...."
+                    className="w-100 p-2 rounded-4 border"
+                    onChange={(e) => {
+                      setNameSearch(e.target.value);
+                    }}
+                  />
+                  <IoIosSearch
+                    className="position-absolute end-0 top-50 bottom-50 my-auto"
+                    size={35}
+                  />
+                </div>
+                <button
+                  className="btn btn-success"
+                  onClick={() => {
+                    setIsOpenAddForm(true);
                   }}
-                />
-                <IoIosSearch
-                  className="position-absolute end-0 top-50 bottom-50 my-auto"
-                  size={35}
-                />
+                >
+                  ADD
+                </button>
               </div>
-              <button
-                className="btn btn-success"
-                onClick={() => {
-                  setIsOpenAddForm(true);
-                }}
-              >
-                ADD
-              </button>
-            </div>
+            )}
             <div className="d-flex mt-3 mb-2">{/* ... (existing code) */}</div>
             <div>
               {activeTab === "product" && (

@@ -45,10 +45,20 @@ const Cart = (props: Props): JSX.Element => {
         <h2 className="cart__total-price">đang phát triển</h2>
       </div>
       <div className="d-flex mt-2 justify-content-between">
-        <button className="btn text-uppercase btn-dark rounded-0 cart__btn-watch--cart">
+        <button
+          className="btn text-uppercase btn-dark rounded-0 cart__btn-watch--cart"
+          onClick={() => {
+            alert("Đang phát triển...");
+          }}
+        >
           Xem giỏ hàng
         </button>
-        <button className="btn text-uppercase btn-dark rounded-0 cart__btn-payment">
+        <button
+          className="btn text-uppercase btn-dark rounded-0 cart__btn-payment"
+          onClick={() => {
+            alert("Đang phát triển...");
+          }}
+        >
           Thanh toán
         </button>
       </div>

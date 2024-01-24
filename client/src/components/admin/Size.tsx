@@ -8,7 +8,7 @@ const Size: React.FC = () => {
   return (
     <div>
       <h2>Size Page</h2>
-      <ul>đang phát triển</ul>
+      <ul>đang phát triển......</ul>
     </div>
   );
 };

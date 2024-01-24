@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavLink from "../client/NavLink";
 import { FaUserCircle } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
@@ -7,9 +7,9 @@ import { IoCartOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SearchForm from "../client/SearchForm";
 import Cart from "../client/Cart";
-import { screenUrl } from "../../constants/screenUrls";
+// import { screenUrl } from "../../constants/screenUrls";
 import "./Header.scss";
-
+import Logout from "../../pages/client/logout";
 export type DropDownItem = {
   id: string;
   name: string;
@@ -184,10 +184,30 @@ const Header = (): JSX.Element => {
   const [isSearchFormVisible, setIsSearchFormVisible] = useState(false);
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const toggleUserMenu = () => {
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+
+    // Show user menu only if userId and token are present
+    if (userId && token) {
+      setIsUserMenuVisible(!isUserMenuVisible);
+    } else {
+      // Redirect to login screen if userId or token is missing
+      navigate('/login');
+    }
+  };
+
+  const closeUserMenu = () => {
+    setIsUserMenuVisible(false);
+  };
 
   const closeAll = () => {
     setIsSearchFormVisible(false);
     setIsCartVisible(false);
+
   };
 
   useEffect(() => {
@@ -203,20 +223,27 @@ const Header = (): JSX.Element => {
     };
   }, []);
 
+  const handleLogout = () => {
+    // Logic to handle logout, if needed
+    setIsUserMenuVisible(false); // Optionally hide the user menu after logout
+  };
+
   return (
     <div className={`header ${isScrolled ? "active" : ""}`}>
       <div
-        className={`d-flex justify-content-between d-lg-flex d-sm-flex justify-content-sm-between  ${
-          isScrolled
+        className={`d-flex gap-3 header-icons justify-content-end ${isScrolled ? "" : "no-scroll"
+          }`}
+      ></div>
+      <div
+        className={`d-flex justify-content-between d-lg-flex d-sm-flex justify-content-sm-between  ${isScrolled
             ? "flex-lg-row align-items-center"
             : "flex-lg-wrap align-items-center"
-        } `}
+          } `}
       >
         <div className={`header-underline ${isScrolled ? "d-none" : ""}`}></div>
         <div
-          className={`header-logo d-flex justify-content-lg-center justify-content-sm-start ${
-            isScrolled ? "" : "no-scroll"
-          }`}
+          className={`header-logo d-flex justify-content-lg-center justify-content-sm-start ${isScrolled ? "" : "no-scroll"
+            }`}
         >
           <Link to="/">
             <img
@@ -227,17 +254,23 @@ const Header = (): JSX.Element => {
         </div>
         <div
           style={isScrolled ? { order: "3" } : {}}
-          className={`d-flex gap-3 header-icons justify-content-end ${
-            isScrolled ? "" : "no-scroll"
-          }`}
+          className={`d-flex gap-3 header-icons justify-content-end ${isScrolled ? "" : "no-scroll"
+            }`}
         >
-          <Link to={screenUrl.LOGIN}>
-            <FaUserCircle
-              className="d-none d-lg-block"
-              fontSize={30}
-              cursor={"pointer"}
-            />
-          </Link>
+
+          <div className="user-circle-container" onClick={toggleUserMenu} onMouseLeave={closeUserMenu}>
+            <FaUserCircle className="d-none d-lg-block" fontSize={30} cursor={"pointer"} />
+            {isUserMenuVisible && (
+              <div className="user-menu">
+
+                <Link to="/user-info">
+                  <a>Thông tin tài khoản</a>
+                </Link>
+                <Logout onLogout={handleLogout} />
+              </div>
+            )}
+          </div>
+
           <FiSearch
             fontSize={30}
             cursor={"pointer"}
@@ -259,9 +292,8 @@ const Header = (): JSX.Element => {
           />
         </div>
         <nav
-          className={`d-none d-sm-none d-lg-flex justify-content-center gap-2 w-100 ${
-            isScrolled ? "mt-0" : ""
-          }`}
+          className={`d-none d-sm-none d-lg-flex justify-content-center gap-2 w-100 ${isScrolled ? "mt-0" : ""
+            }`}
         >
           {data.map((el, index) => {
             return (
