@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: "https://uda-fashion-store-api.vercel.app/v1",
+  baseURL: "http://localhost:3000/v1",
   headers: {
     "Content-Type": "application/json",
   },

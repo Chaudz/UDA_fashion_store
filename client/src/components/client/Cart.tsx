@@ -1,14 +1,18 @@
 import { IoCloseSharp } from "react-icons/io5";
 import ProductCart from "./ProductCart";
 import { useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store.toolkit";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./styles/Cart.scss";
-import { RootState } from "../../store/store.toolkit";
+import { fetchProducts } from "../../store/productSlice";
 
 type Props = {
-  onSetIsCartVisible: (value: boolean) => void; // Adjust the type according to your needs
+  onSetIsCartVisible: (value: boolean) => void;
 };
 
 const Cart = (props: Props): JSX.Element => {
+  const ditpatch = useDispatch<AppDispatch>();
   const products = useSelector(
     (state: RootState) => state.productReducer.products
   );
@@ -17,6 +21,10 @@ const Cart = (props: Props): JSX.Element => {
     (total, product) => total + product.price,
     0
   );
+
+  useEffect(() => {
+    ditpatch(fetchProducts());
+  }, []);
 
   return (
     <div className="cart position-fixed end-0 top-0 bottom-0">
@@ -34,7 +42,7 @@ const Cart = (props: Props): JSX.Element => {
       <div className="cart__separator w-100 my-4"></div>
       <div className="d-flex justify-content-between">
         <h2 className="cart__total-title">Tổng tiền</h2>
-        <h2 className="cart__total-price">{totalPrice.toLocaleString()}đ</h2>
+        <h2 className="cart__total-price">đang phát triển</h2>
       </div>
       <div className="d-flex mt-2 justify-content-between">
         <button className="btn text-uppercase btn-dark rounded-0 cart__btn-watch--cart">

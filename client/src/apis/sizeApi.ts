@@ -1,10 +1,11 @@
+import { SizeModel } from "../models/SizeModel";
 import axiosClient from "./axiosClient";
 
 class SizeApi {
-  getAllSize() {
+  async getAllSize() {
     const url = "/sizes";
-
-    return axiosClient.get(url);
+    const response: { Sizes: SizeModel[] } = await axiosClient.get(url);
+    return response.Sizes;
   }
 
   addSize(sizeName: string) {

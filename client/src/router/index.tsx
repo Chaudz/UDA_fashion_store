@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HomePage, LoginPage } from "../pages/client";
+import { LoginPage, HomePage } from "../pages/client";
+import { HomePage as HomePageAdmin } from "../pages/admin";
 import { screenUrl } from "../constants/screenUrls";
 import LayoutContainer from "../components/common/LayoutContainer";
 import RegisterPage from "../pages/client/RegisterPage";
@@ -48,6 +49,13 @@ const routerconfig = [
     title: "Trang sale",
     isHeader: true,
     isFooter: true,
+  },
+  {
+    url: screenUrl.ADMIN,
+    component: HomePageAdmin,
+    title: "Trang chủ admin",
+    isHeader: false,
+    isFooter: false,
   },
 ];
 

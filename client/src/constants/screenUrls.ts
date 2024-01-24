@@ -4,4 +4,5 @@ export const screenUrl = {
   COLLECTIONS: "/collections",
   REGISTER: "/register",
   SALE: "/sale",
+  ADMIN: "/admin",
 };
