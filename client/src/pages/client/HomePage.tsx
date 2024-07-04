@@ -283,7 +283,12 @@ const HomePage = () => {
                           alt=""
                         />
                         <div className="d-flex position-absolute bottom-0 w-100 wrapper__btn-card__img">
-                          <button className="btn w-50 btn-card__img">
+                          <button
+                            className="btn w-50 btn-card__img"
+                            onClick={() => {
+                              alert("đang phát triển");
+                            }}
+                          >
                             Mua ngay
                           </button>
                           <div
@@ -294,17 +299,7 @@ const HomePage = () => {
                           <button
                             className="btn w-50 btn-card__img"
                             onClick={() => {
-                              ditpatch(
-                                addProduct({
-                                  id: product.id,
-                                  name: product.title,
-                                  size: product.size,
-                                  color: product.color,
-                                  price: product.price,
-                                  image: product.img,
-                                })
-                              );
-                              console.log("dsffaasdf");
+                              alert("đang phát triển");
                             }}
                           >
                             Thêm vào giỏ
@@ -320,7 +315,14 @@ const HomePage = () => {
             }
           })}
         </Swiper>
-        <button className="btn my-3 btn__load-data px-4 py-2">Xem thêm</button>
+        <button
+          className="btn my-3 btn__load-data px-4 py-2"
+          onClick={() => {
+            alert("Đang phát triển...");
+          }}
+        >
+          Xem thêm
+        </button>
       </div>
       <div className="d-flex gap-2 mb-5">
         <div className="product-intro position-relative">

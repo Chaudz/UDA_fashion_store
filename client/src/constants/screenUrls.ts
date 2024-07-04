@@ -5,5 +5,6 @@ export const screenUrl = {
   REGISTER: "/register",
   PRODUCT: "/products",
   SALE: "/sale",
-  INFO:"/user-info"
+  INFO: "/user-info",
+  ADMIN: "/admin",
 };
